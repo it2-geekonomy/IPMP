@@ -1,9 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
-type Client = {
-  id: string;
-  name: string;
-};
+import type { Client } from "@/types/client";
 
 type ClientState = {
   items: Client[];

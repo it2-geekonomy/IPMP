@@ -1,10 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
-type Task = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
+import type { Task } from "@/types/task";
 
 type TaskState = {
   items: Task[];

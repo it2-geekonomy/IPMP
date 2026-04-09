@@ -1,9 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
-type BillingSummary = {
-  totalDue: number;
-  totalPaid: number;
-};
+import type { BillingSummary } from "@/types/billing";
 
 type BillingState = {
   summary: BillingSummary;

@@ -1,2 +1,7 @@
-export interface User {}
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: "admin" | "manager" | "employee";
+}
 

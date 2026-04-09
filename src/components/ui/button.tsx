@@ -22,12 +22,26 @@ const sizeClasses: Record<ButtonSize, string> = {
   lg: "h-11 px-6",
 };
 
+const buttonBaseClass =
+  "type-body inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+
+export function buttonClassName(
+  options: {
+    variant?: ButtonVariant;
+    size?: ButtonSize;
+    className?: string;
+  } = {},
+): string {
+  const { variant = "default", size = "md", className = "" } = options;
+  return `${buttonBaseClass} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim();
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className = "", variant = "default", size = "md", ...props }, ref) => {
     return (
       <button
         ref={ref}
-        className={`type-body inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+        className={buttonClassName({ variant, size, className })}
         {...props}
       />
     );
